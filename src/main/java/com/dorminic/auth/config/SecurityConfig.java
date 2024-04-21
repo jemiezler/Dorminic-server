@@ -29,11 +29,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://127.0.0.1:5173"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://127.0.0.1:5173","http://10.5.188.4:5173"));
         configuration.setAllowedMethods(Arrays.asList(
                 HttpMethod.GET.name(),
                 HttpMethod.POST.name(),
-                HttpMethod.OPTIONS.name()));
+                HttpMethod.OPTIONS.name()));  
         configuration.setAllowedHeaders(Arrays.asList(
                 HttpHeaders.AUTHORIZATION, // Include Authorization header
                 HttpHeaders.CONTENT_TYPE));
