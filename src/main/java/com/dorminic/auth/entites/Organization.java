@@ -24,15 +24,15 @@ public class Organization {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID orgID;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "org_name", nullable = false, unique = true)
     @Size(max = 100)
-    private String OrgName;
+    private String org_name;
 
-    @Column(name = "orgkey", nullable = false)
+    @Column(name = "org_key", nullable = false, unique = true)
     @Size(max = 100)
-    private String orgkey;
+    private String org_key;
 
-    @Column(name = "orgverify", nullable = false)
+    @Column(name = "org_verification", nullable = false, unique = true)
     @Size(max = 100)
-    private String orgverify;
+    private String org_verification	;
 }

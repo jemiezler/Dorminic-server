@@ -20,5 +20,5 @@ public class UserDto {
     private String login;
     private String token;
     private Role role;
-    private long orgID;
+    private UUID orgID;
 }

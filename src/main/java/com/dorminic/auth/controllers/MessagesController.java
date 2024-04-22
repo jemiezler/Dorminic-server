@@ -2,12 +2,14 @@ package com.dorminic.auth.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dorminic.auth.dtos.MessageDto;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class MessagesController {
 
     @GetMapping("/messages")

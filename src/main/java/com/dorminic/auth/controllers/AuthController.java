@@ -13,13 +13,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
+@RequestMapping("/apis/auth")
 public class AuthController {
 
     private final UserService userService;
@@ -37,6 +39,12 @@ public class AuthController {
         UserDto createdUser = userService.userregister(user);
         createdUser.setToken(userAuthenticationProvider.createToken(createdUser));
         return ResponseEntity.created(URI.create("/users/" + createdUser.getId())).body(createdUser);
+    }
+
+    @PostMapping("/edit")
+    public ResponseEntity<UserDto> editUser(@RequestBody @Valid UserDto userDto) {
+        UserDto updatedUser = userService.editUser(userDto);
+        return ResponseEntity.ok(updatedUser);
     }
 
 }
